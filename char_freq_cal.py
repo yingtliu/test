@@ -5,19 +5,23 @@ def get_char_num(a):
 Args:
 - char_str(string): character array
 
-returns:
+returns
+''':
     dict_char = dict()
     for char in char_str:
-        if c not in b:
-            b[c] = 1
+        if char not in dict_char:
+            char_dict[char] = 1
         else:
-            b[c] += 1
-    return b
+            char_dict[char] += 1
+    return char_dict
 
-def function2(a):
+def get_relative_freq(char_dict):
+'''
+documentation
+'''
     print('freqs')
-    total = float(sum([a[b] for b in a.keys()]))
-    for b in a.keys():
-        print(b + ':' + str(a[b]/total))
+    total = float(sum([dict[char] for char in char_dict.keys()]))
+    for char in char_dict.keys():
+        print(char + ':' + str(char_dict[char]/total))
 
-function2(function1('ATCTGACGCGCGCCGC'))
+get_relative_freq(get_char_num('ATCTGACGCGCGCCGC'))
